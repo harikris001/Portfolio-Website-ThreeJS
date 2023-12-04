@@ -49,9 +49,11 @@ export default function Island({ isRotating, setIsRotating, setCurrentStage, ...
     if (e.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
       islandRef.current.rotation.y += 0.01 * Math.PI;
+      rotationSpeed.currentn = 0.0125
     } else if (e.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
       islandRef.current.rotation.y -= 0.01 * Math.PI;
+      rotationSpeed.currentn = -0.0125
     }
   };
 
