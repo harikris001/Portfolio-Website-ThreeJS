@@ -14,12 +14,13 @@ const About = () => {
       <h1 className="head-text">
         Hello, I'm{" "}
         <span className="blue-gradient_text font-semibold drop-shadow">
-          Harikrishna 👋🏻
-        </span>
+          Harikrishna
+        </span> 👋🏻
       </h1>
 
       <div className="mt-5 flex fflex-col gap-3 text-slate-500">
-        <p>Software Engineer with loads of dreams and !deas to change the world. Check out my skillset arsenal 💪</p>
+        <p>As a dedicated Software Engineer, I'm fueled by a fervent desire to revolutionize the world through technology. With a wealth of experience and a passion for innovation, I strive to craft solutions that make a tangible impact. 💻 My skillset arsenal, honed through hands-on experience, reflects my commitment to excellence in creating cutting-edge software. Do checkout my skillset arsenal below 👇 🚀✨
+        </p>
       </div>
 
       <div className="py-10 flex flex-col">
@@ -44,7 +45,7 @@ const About = () => {
       <div className="py-16">
         <h3 className="subhead-text">Certifications & Experiences</h3>
         <div className="mt-5 flex fflex-col gap-3 text-slate-500">
-          <p>I am a fresher looking for opportunities to collaborate and work with amazing people. I have great knowledge in Web Development, React, Flutter and AI & ML.</p>
+          <p>I am an enthusiastic newcomer seeking opportunities to collaborate and work alongside exceptional individuals. My expertise spans across Web Development, React, Flutter, and AI & ML, showcasing a strong foundation and a fervor for innovation. 💡 Throughout my journey, I've actively engaged in coding experiences, hackathons, and acquired numerous certificates, underscoring my commitment and continuous learning in this field. Additionally, my volunteering and leadership experiences have honed my teamwork and organizational skills, equipping me to contribute effectively to impactful projects. 🚀✨</p>
         </div>
       </div>
 

@@ -217,6 +217,13 @@ export const socialLinks = [
 
 export const projects = [
     {
+        iconUrl: snapgram,
+        theme: 'btn-back-pink',
+        name: 'Full Stack Instagram Clone',
+        description: 'Built a complete clone of Instagram using Flutter, allowing users to share photos and connect with friends in a familiar social media environment.',
+        link: 'https://instagram-harikris.vercel.app/',
+    },
+    {
         iconUrl: tiger,
         theme: 'btn-back-yellow',
         name: 'Wild Cat Classifier',
@@ -236,13 +243,6 @@ export const projects = [
         name: 'Super Mario AI: Reinforcement learning',
         description: 'A Reinforcement learning based AI Agnet that can play the game Super Mario Bros. Uses the power of Policy Proximal Optimization to make critical decisions. ',
         link: 'https://github.com/harikris001/Super-mario-Reinforcement-Learning-V2',
-    },
-    {
-        iconUrl: snapgram,
-        theme: 'btn-back-pink',
-        name: 'Full Stack Instagram Clone',
-        description: 'Built a complete clone of Instagram using Flutter, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://instagram-harikris.vercel.app/',
     },
     {
         iconUrl: chatAI,

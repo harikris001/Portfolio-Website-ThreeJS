@@ -15,7 +15,7 @@ const Projects = () => {
       </h1>
 
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p>Throughtout my journey I have completed a lot of projects and improved my skill set. These projects are some of the greatest ones that I am proud of. Take a look at these...</p>
+        <p>Throughout my journey, I've completed a multitude of projects, each contributing to my skill set and growth. 🌟 These standout projects are some of my proudest achievements, reflecting my dedication and passion for innovation. Take a closer look at these remarkable endeavors that demonstrate my commitment to excellence and creativity! 💡💪</p>
       </div>
 
       <div className="flex flex-wrap my-20 gap-16">
