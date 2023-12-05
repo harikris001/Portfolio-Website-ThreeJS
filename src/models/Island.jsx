@@ -5,7 +5,13 @@ import { a } from "@react-spring/three";
 
 import islandScene from "../assets/3d/island.glb";
 
-export default function Island({ isRotating, setIsRotating, setCurrentStage, ...props }) {
+export default function Island({
+  isRotating,
+  setIsRotating,
+  setCurrentStage,
+  currFocusPoint,
+  ...props
+}) {
   const islandRef = useRef();
 
   const { nodes, materials } = useGLTF(islandScene);
@@ -48,12 +54,12 @@ export default function Island({ isRotating, setIsRotating, setCurrentStage, ...
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y += 0.01 * Math.PI;
-      rotationSpeed.currentn = 0.0125
+      islandRef.current.rotation.y += 0.005 * Math.PI;
+      rotationSpeed.currentn = 0.007;
     } else if (e.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y -= 0.01 * Math.PI;
-      rotationSpeed.currentn = -0.0125
+      islandRef.current.rotation.y -= 0.005 * Math.PI;
+      rotationSpeed.currentn = -0.007;
     }
   };
 
@@ -63,13 +69,29 @@ export default function Island({ isRotating, setIsRotating, setCurrentStage, ...
     }
   };
 
+  useEffect(() => {
+    const canvas = gl.domElement;
+    canvas.addEventListener("pointerdown", handlePointerDown);
+    canvas.addEventListener("pointerup", handlePointerUP);
+    canvas.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+
+    return () => {
+      canvas.removeEventListener("pointerdown", handlePointerDown);
+      canvas.removeEventListener("pointerup", handlePointerUP);
+      canvas.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [gl, handlePointerDown, handlePointerUP, handlePointerMove]);
   useFrame(() => {
     if (!isRotating) {
       rotationSpeed.current *= dampingFactor;
       if (Math.abs(rotationSpeed.current) < 0.001) {
         rotationSpeed.current = 0;
       }
-      islandRef.current.rotation.y += rotationSpeed.current
+      islandRef.current.rotation.y += rotationSpeed.current;
     } else {
       const rotation = islandRef.current.rotation.y;
 
@@ -95,23 +117,6 @@ export default function Island({ isRotating, setIsRotating, setCurrentStage, ...
       }
     }
   });
-
-  useEffect(() => {
-    const canvas = gl.domElement;
-    canvas.addEventListener("pointerdown", handlePointerDown);
-    canvas.addEventListener("pointerup", handlePointerUP);
-    canvas.addEventListener("pointermove", handlePointerMove);
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      canvas.removeEventListener("pointerdown", handlePointerDown);
-      canvas.removeEventListener("pointerup", handlePointerUP);
-      canvas.removeEventListener("pointermove", handlePointerMove);
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("keyup", handleKeyUp);
-    };
-  }, [gl, handlePointerDown, handlePointerUP, handlePointerMove]);
 
   return (
     <a.group ref={islandRef} {...props}>
@@ -146,5 +151,3 @@ export default function Island({ isRotating, setIsRotating, setCurrentStage, ...
     </a.group>
   );
 }
-
-useGLTF.preload("/island.glb");
