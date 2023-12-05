@@ -15,7 +15,7 @@ const Projects = () => {
       </h1>
 
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p>Throughtout my journey I have completed a couple of projects. Take a look</p>
+        <p>Throughtout my journey I have completed a lot of projects and improved my skill set. These projects are some of the greatest ones that I am proud of. Take a look at these...</p>
       </div>
 
       <div className="flex flex-wrap my-20 gap-16">
@@ -27,7 +27,7 @@ const Projects = () => {
                 <img
                   src={project.iconUrl}
                   alt="Project Icon"
-                  className="w-1/2 h-1/2 object-contain"
+                  className="w-1/2 h-1/2 object-contain rounded-md"
                 />
               </div>
             </div>

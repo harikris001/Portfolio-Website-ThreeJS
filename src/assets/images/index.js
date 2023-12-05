@@ -1,15 +1,15 @@
 import hero from './hero.jpg'
-import meta from './meta.png'
-import shopify from './shopify.png'
-import starbucks from './starbucks.png'
-import tesla from './tesla.png'
+import certificate from './certificate-flat.png'
+import experience from './exp-free.png'
+import hack from './hack-free.png'
+import workshop from './workshop-free.png'
 import logo from './logo.svg'
 
 export {
     hero,
-    meta,
-    shopify,
-    starbucks,
-    tesla,
+    certificate,
+    experience,
+    hack,
+    workshop,
     logo
 }

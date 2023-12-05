@@ -1,5 +1,6 @@
-import { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import { Suspense, useEffect, useRef, useState } from "react";
+
 import Loader from "../components/Loader";
 import Island from "../models/Island";
 import Sky from "../models/Sky";
@@ -15,8 +16,8 @@ const Home = () => {
   audioRef.current.volume = 0.2;
   audioRef.current.loop = true;
 
-  const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  const [isRotating, setIsRotating] = useState(false);
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
@@ -29,6 +30,17 @@ const Home = () => {
     };
   }, [playing]);
 
+  const adjustPlanelandForScreenSize = () => {
+    let screensScale, screenPosition;
+    if (window.innerWidth < 768) {
+      screensScale = [2.5, 2.5, 2.5];
+      screenPosition = [0, -1.5, 0];
+    } else {
+      screensScale = [3, 3, 3];
+      screenPosition = [0, -4, -4];
+    }
+    return [screensScale, screenPosition];
+  };
   const adjustIslandForScreenSize = () => {
     let screensScale = null;
     let screenPosition;
@@ -41,18 +53,6 @@ const Home = () => {
       screenPosition = [0, -6.5, -43.4];
     }
     return [screensScale, screenPosition, rotation];
-  };
-
-  const adjustPlanelandForScreenSize = () => {
-    let screensScale, screenPosition;
-    if (window.innerWidth < 768) {
-      screensScale = [2.5, 2.5, 2.5];
-      screenPosition = [0, -1.5, 0];
-    } else {
-      screensScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
-    }
-    return [screensScale, screenPosition];
   };
 
   const [islandScale, islandPosition, islandRotation] =
@@ -73,6 +73,13 @@ const Home = () => {
         <Suspense fallback={<Loader />}>
           <directionalLight position={[1, 1, 1]} intensity={2} />
           <ambientLight intensity={0.5} />
+          <pointLight position={[10, 5, 10]} intensity={2} />
+          <spotLight
+            position={[0, 50, 10]}
+            angle={0.15}
+            penumbra={1}
+            intensity={2}
+          />
           <hemisphereLight
             skyColor="#b1e1ff"
             groundColor="#000000"
@@ -81,16 +88,16 @@ const Home = () => {
           <Bird />
           <Sky isRotating={isRotating} />
           <Island
-            position={islandPosition}
-            scale={islandScale}
-            rotation={islandRotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
+            position={islandPosition}
+            rotation={islandRotation}
+            scale={islandScale}
           />
           <Plane
             isRotating={isRotating}
-            scalecale={planeScale}
+            scale={planeScale}
             position={planePosition}
             rotation={[0, 20, 0]}
           />
@@ -101,8 +108,8 @@ const Home = () => {
         <img
           src={!playing ? soundoff : soundon}
           alt="sound"
-          className="w-10 h-10 cursor-pointer object-contain"
           onClick={() => setPlaying(!playing)}
+          className="w-10 h-10 cursor-pointer object-contain"
         />
       </div>
     </section>

@@ -1,41 +1,54 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
+import { workshop, hack, certificate, experience } from "../assets/images";
 
 import {
-    car,
-    contact,
+    opencv,
+    bootstrap,
+    firebase,
+    flutter,
+    pytorch,
+    django,
+    python,
+    mysql,
     css,
-    estate,
-    express,
     git,
     github,
     html,
     javascript,
-    linkedin,
     mongodb,
-    motion,
-    mui,
     nextjs,
     nodejs,
-    pricewise,
     react,
     redux,
-    sass,
-    snapgram,
-    summiz,
     tailwindcss,
-    threads,
-    typescript
+    typescript,
+    linkedin,
+    twitter,
+    mask,
+    chatAI,
+    tiger,
+    snapgram,
+    weather,
+    mario,
+    arrow,
+    contact,
+    soundon,
+    soundoff
 } from "../assets/icons";
 export const skills = [
+    {
+        imageUrl: html,
+        name: "HTML",
+        type: "Frontend",
+    },
     {
         imageUrl: css,
         name: "CSS",
         type: "Frontend",
     },
     {
-        imageUrl: express,
-        name: "Express",
-        type: "Backend",
+        imageUrl: javascript,
+        name: "JavaScript",
+        type: "Frontend",
     },
     {
         imageUrl: git,
@@ -48,13 +61,8 @@ export const skills = [
         type: "Version Control",
     },
     {
-        imageUrl: html,
-        name: "HTML",
-        type: "Frontend",
-    },
-    {
-        imageUrl: javascript,
-        name: "JavaScript",
+        imageUrl: react,
+        name: "React",
         type: "Frontend",
     },
     {
@@ -63,14 +71,49 @@ export const skills = [
         type: "Database",
     },
     {
-        imageUrl: motion,
-        name: "Motion",
-        type: "Animation",
+        imageUrl: mysql,
+        name: "MySQL",
+        type: "Backend",
     },
     {
-        imageUrl: mui,
-        name: "Material-UI",
+        imageUrl: firebase,
+        name: "Firebase",
+        type: "Backend",
+    },
+    {
+        imageUrl: bootstrap,
+        name: "Bootstrap",
         type: "Frontend",
+    },
+    {
+        imageUrl: tailwindcss,
+        name: "Tailwind CSS",
+        type: "Frontend",
+    },
+    {
+        imageUrl: python,
+        name: "Python",
+        type: "language"
+    },
+    {
+        imageUrl: django,
+        name: "Django",
+        type: "Backend"
+    },
+    {
+        imageUrl: pytorch,
+        name: "Pytorch",
+        type: "ML"
+    },
+    {
+        imageUrl: opencv,
+        name: "OpenCV",
+        type: "ML"
+    },
+    {
+        imageUrl: flutter,
+        name: "Flutter",
+        type: "SDK"
     },
     {
         imageUrl: nextjs,
@@ -83,83 +126,68 @@ export const skills = [
         type: "Backend",
     },
     {
-        imageUrl: react,
-        name: "React",
-        type: "Frontend",
-    },
-    {
         imageUrl: redux,
         name: "Redux",
         type: "State Management",
     },
     {
-        imageUrl: sass,
-        name: "Sass",
-        type: "Frontend",
-    },
-    {
-        imageUrl: tailwindcss,
-        name: "Tailwind CSS",
-        type: "Frontend",
-    },
-    {
         imageUrl: typescript,
         name: "TypeScript",
         type: "Frontend",
-    }
+    },
+    
 ];
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
+        title: "Certifications",
+        company_name: "Udemy, FreeCodeCamp",
+        icon: certificate,
         iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
+        skills: "Skills: Flutter, Web Development, Python ",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Ultimate Dart & Flutter Course 2023.",
+            "Complete Web Development Bootcamp 2023.",
+            "Responsive web design - FreeCodeCamp.",
+            "Programming, DSA with Python.",
         ],
     },
     {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
+        title: "Experiences",
+        company_name: "Volunteership, TeamLead",
+        icon: experience,
         iconBg: "#fbc3bc",
-        date: "Jan 2021 - Feb 2022",
+        skills: "Skills: Leadership, Team Player, Collaboration",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "NASA Space Apps Hackathon Volunteer",
+            "S7-Main Project Team Lead",
+            "S5-Mini Project team Lead",
+            "Gtech MuLearn AI/ML Intrest Group Coordinator",
         ],
     },
     {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
+        title: "Hackathons",
+        company_name: "National level",
+        icon: hack,
         iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
+        skills: "Skills: Problem Solving, Critical thinking",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "TinkerHub Saturday Hacknight Best project",
+            "TinkherHub and IEEE HackArch 2.0",
+            "ARAMBH 2k22 IEDC hackathon",
         ],
     },
     {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
+        title: "Workshops",
+        company_name: "Seminar, Summits",
+        icon: workshop,
         iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
+        skills: "Skills: Public Speaking",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "IEDc Summit 2023 at CET Trivandrum",
+            "Online self-paced bootcamp by ICT Academy and GDG on Machine Learning with TensorFlow and Android with Compose",
+            "Python & ML Bootcamp conducted BIT and Google developer Group",
+            "JavaScript & React Bootcamp conducted Google developer group Ranchi",
         ],
     },
 ];
@@ -173,56 +201,61 @@ export const socialLinks = [
     {
         name: 'GitHub',
         iconUrl: github,
-        link: 'https://github.com/YourGitHubUsername',
+        link: 'https://github.com/harikris001',
     },
     {
         name: 'LinkedIn',
         iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/YourLinkedInUsername',
+        link: 'https://www.linkedin.com/in/harikrishnarnair',
+    },
+    {
+        name: 'Twitter',
+        iconUrl: twitter,
+        link: 'https://www.x.com/TheHarikris'
     }
 ];
 
 export const projects = [
     {
-        iconUrl: pricewise,
+        iconUrl: tiger,
+        theme: 'btn-back-yellow',
+        name: 'Wild Cat Classifier',
+        description: 'Created a Deep Laerning Model that can predict upto 10 different types of wild cats. Transfer learning on EfficientNet-b0, Inception, TinyVGG (from scratch).',
+        link: 'https://wild-cat-classifier-harikris.streamlit.app/',
+    },
+    {
+        iconUrl: mask,
+        theme: 'btn-back-black',
+        name: 'Real-time Mask Detector',
+        description: 'Real-time mask detector that uses the power of machine learning to detect the person has worn or not worn mask, and even detect mask worn incorrectly. The model has an accuracy of 99%',
+        link: 'https://github.com/harikris001/Mask-Detector',
+    },
+    {
+        iconUrl: mario,
         theme: 'btn-back-red',
-        name: 'Amazon Price Tracker',
-        description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-        link: 'https://github.com/adrianhajdin/pricewise',
-    },
-    {
-        iconUrl: threads,
-        theme: 'btn-back-green',
-        name: 'Full Stack Threads Clone',
-        description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-        link: 'https://github.com/adrianhajdin/threads',
-    },
-    {
-        iconUrl: car,
-        theme: 'btn-back-blue',
-        name: 'Car Finding App',
-        description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
+        name: 'Super Mario AI: Reinforcement learning',
+        description: 'A Reinforcement learning based AI Agnet that can play the game Super Mario Bros. Uses the power of Policy Proximal Optimization to make critical decisions. ',
+        link: 'https://github.com/harikris001/Super-mario-Reinforcement-Learning-V2',
     },
     {
         iconUrl: snapgram,
         theme: 'btn-back-pink',
         name: 'Full Stack Instagram Clone',
-        description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
+        description: 'Built a complete clone of Instagram using Flutter, allowing users to share photos and connect with friends in a familiar social media environment.',
+        link: 'https://instagram-harikris.vercel.app/',
     },
     {
-        iconUrl: estate,
+        iconUrl: chatAI,
         theme: 'btn-back-black',
-        name: 'Real-Estate Application',
-        description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
+        name: 'ChatAI Voice Assistant',
+        description: 'A flutter application that leverges the power of ChatGPT for interaction with user and perform AI Image generation using DALL-E.',
+        link: 'https://github.com/harikris001/chatAI-using-flutter',
     },
     {
-        iconUrl: summiz,
-        theme: 'btn-back-yellow',
-        name: 'AI Summarizer Application',
-        description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
-        link: 'https://github.com/adrianhajdin/project_ai_summarizer',
+        iconUrl: weather,
+        theme: 'btn-back-blue',
+        name: 'Weather App',
+        description: 'A simple flutter based app with an amazing UI. uses OpenWeather API for fetching realtime weather and temprature data.',
+        link: 'https://weather-app-harikris001.vercel.app/',
     }
 ];

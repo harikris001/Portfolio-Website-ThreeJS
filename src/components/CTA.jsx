@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const CTA = () => {
   return (
-    <section className="cta-text">
-      <p>
+    <section className="cta">
+      <p className="cta-text">
         Want to collaborate on a project <br className="sm:block hidden" />
         Let's build it together
       </p>
@@ -14,5 +14,7 @@ const CTA = () => {
     </section>
   );
 };
+
+
 
 export default CTA;

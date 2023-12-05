@@ -19,7 +19,7 @@ const About = () => {
       </h1>
 
       <div className="mt-5 flex fflex-col gap-3 text-slate-500">
-        <p>Software Engineer with loads of dreams and !deas to change the world. Check out my skillset arsenal</p>
+        <p>Software Engineer with loads of dreams and !deas to change the world. Check out my skillset arsenal 💪</p>
       </div>
 
       <div className="py-10 flex flex-col">
@@ -42,9 +42,9 @@ const About = () => {
       </div>
 
       <div className="py-16">
-        <h3 className="subhead-text">Work Experience</h3>
+        <h3 className="subhead-text">Certifications & Experiences</h3>
         <div className="mt-5 flex fflex-col gap-3 text-slate-500">
-          <p>Software Engineer based in India, specilizing in FLutter</p>
+          <p>I am a fresher looking for opportunities to collaborate and work with amazing people. I have great knowledge in Web Development, React, Flutter and AI & ML.</p>
         </div>
       </div>
 
@@ -53,7 +53,7 @@ const About = () => {
           {experiences.map((exp) => (
             <VerticalTimelineElement
               key={exp.company_name}
-              date={exp.date}
+              date={exp.skills}
               icon={
                 <div className="flex justify-center items-center w-full h-full">
                   <img
