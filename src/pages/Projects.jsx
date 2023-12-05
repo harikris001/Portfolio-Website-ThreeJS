@@ -15,7 +15,7 @@ const Projects = () => {
       </h1>
 
       <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p>all projects that i have completed</p>
+        <p>Throughtout my journey I have completed a couple of projects. Take a look</p>
       </div>
 
       <div className="flex flex-wrap my-20 gap-16">
