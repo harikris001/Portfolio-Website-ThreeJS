@@ -69,11 +69,42 @@ export default function Island({
     }
   };
 
+  const handleTouchEnd = (e:TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setIsRotating(false);
+    const clientX = e.touches[0].client;
+    lastX.current = clientX;
+  }
+
+  const handleTouchMove = (event:TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if(isRotating) {
+      const clientX = e.touches[0].clientX;
+      const delta = (clientX - lastX.current) / viewport.width;
+      if(islandRef.current) {
+        islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+      }
+      lastX.current = clientX;
+      rotationSpeed.current = delta * 0.01 * Math.PI;
+    }
+  }
+
+  const handleTouchStart = () => {
+    e.stopPropagation();
+    e.preventDefault();
+    setIsRotating(false)
+  }
+
   useEffect(() => {
     const canvas = gl.domElement;
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUP);
     canvas.addEventListener("pointermove", handlePointerMove);
+    canvas.addEventListener("touchstart", handleTouchStart);
+    canvas.addEventListener("touchend", handleTouchEnd);
+    canvas.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
 
@@ -81,10 +112,13 @@ export default function Island({
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointerup", handlePointerUP);
       canvas.removeEventListener("pointermove", handlePointerMove);
+      canvas.removeEventListener("touchstart",handleTouchStart);
+      canvas.removeEventListener("touchend", handleTouchEnd);
+      canvas.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [gl, handlePointerDown, handlePointerUP, handlePointerMove]);
+  }, [gl, handlePointerDown, handlePointerUP, handlePointerMove, viewport.width]);
   useFrame(() => {
     if (!isRotating) {
       rotationSpeed.current *= dampingFactor;
