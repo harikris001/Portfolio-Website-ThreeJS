@@ -21,86 +21,84 @@ export default function Island({
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
 
-  const handlePointerDown = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setIsRotating(true);
-
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-
-    lastX.current = clientX;
-  };
-  const handlePointerUP = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
+  useEffect(() => {
+  const handlePointerUp = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
     setIsRotating(false);
   };
-  const handlePointerMove = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
 
+  const handlePointerMove = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
     if (isRotating) {
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-
+      const clientX = event.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
-      islandRef.current.rotation.y += delta * 0.01 * Math.PI;
-
+        if (islandRef.current) {
+            islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+        }
       lastX.current = clientX;
-
       rotationSpeed.current = delta * 0.01 * Math.PI;
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowLeft") {
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y += 0.005 * Math.PI;
-      rotationSpeed.currentn = 0.007;
-    } else if (e.key === "ArrowRight") {
+        if (islandRef.current) {
+            islandRef.current.rotation.y += 0.005 * Math.PI;
+}
+      rotationSpeed.current = 0.007;
+    } else if (event.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
-      islandRef.current.rotation.y -= 0.005 * Math.PI;
-      rotationSpeed.currentn = -0.007;
+        if (islandRef.current) {
+            islandRef.current.rotation.y -= 0.005 * Math.PI;
+        }
+      rotationSpeed.current = -0.007;
     }
   };
 
-  const handleKeyUp = (e) => {
-    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+  const handleKeyUp = (event) => {
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       setIsRotating(false);
     }
   };
+const handlePointerDown = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setIsRotating(true);
+  };
 
-  const handleTouchEnd = (e:TouchEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    setIsRotating(false);
-    const clientX = e.touches[0].client;
+const handleTouchEnd = (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+setIsRotating(false);
+const clientX = event.touches[0].clientX;
+lastX.current = clientX;
+};
+
+const handleTouchMove = (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+  if (isRotating) {
+    const clientX = event.touches[0].clientX;
+    const delta = (clientX - lastX.current) / viewport.width;
+      if (islandRef.current) {
+          islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+}
     lastX.current = clientX;
+    rotationSpeed.current = delta * 0.01 * Math.PI;
   }
+};
 
-  const handleTouchMove = (event:TouchEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    if(isRotating) {
-      const clientX = e.touches[0].clientX;
-      const delta = (clientX - lastX.current) / viewport.width;
-      if(islandRef.current) {
-        islandRef.current.rotation.y += delta * 0.01 * Math.PI;
-      }
-      lastX.current = clientX;
-      rotationSpeed.current = delta * 0.01 * Math.PI;
-    }
-  }
-
-  const handleTouchStart = () => {
-    e.stopPropagation();
-    e.preventDefault();
-    setIsRotating(false)
-  }
-
-  useEffect(() => {
+const handleTouchStart = (event) => {
+  event.stopPropagation();
+  event.preventDefault();
+  setIsRotating(true);
+};
     const canvas = gl.domElement;
     canvas.addEventListener("pointerdown", handlePointerDown);
-    canvas.addEventListener("pointerup", handlePointerUP);
+    canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
     canvas.addEventListener("touchstart", handleTouchStart);
     canvas.addEventListener("touchend", handleTouchEnd);
@@ -109,16 +107,17 @@ export default function Island({
     window.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      canvas.removeEventListener("pointerdown", handlePointerDown);
-      canvas.removeEventListener("pointerup", handlePointerUP);
-      canvas.removeEventListener("pointermove", handlePointerMove);
-      canvas.removeEventListener("touchstart",handleTouchStart);
-      canvas.removeEventListener("touchend", handleTouchEnd);
-      canvas.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
+    canvas.removeEventListener("pointerdown", handlePointerDown);
+    canvas.removeEventListener("pointerup", handlePointerUp);
+    canvas.removeEventListener("pointermove", handlePointerMove);
+    canvas.removeEventListener("touchstart", handleTouchStart);
+    canvas.removeEventListener("touchend", handleTouchEnd);
+    canvas.removeEventListener("touchmove", handleTouchMove);
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [gl, handlePointerDown, handlePointerUP, handlePointerMove, viewport.width]);
+  }, [gl, isRotating, setIsRotating, viewport.width]);
+
   useFrame(() => {
     if (!isRotating) {
       rotationSpeed.current *= dampingFactor;
