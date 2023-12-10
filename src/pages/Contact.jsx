@@ -37,7 +37,7 @@ const Contact = () => {
           to_email: "harikrishnar.official@gmail.com",
           message: form.message,
         },
-        process.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        'SX8ahD6el7e2Qmf8d'
       )
       .then(() => {
         setLoading(false);
