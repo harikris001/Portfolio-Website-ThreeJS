@@ -26,9 +26,9 @@ const Contact = () => {
     setLoading(true);
     setCurrAnimation("hit");
 
-    var service_id = process.env.VITE_APP_EMAILJS_SERVICE_ID
-    var templete_id = process.env.VITE_APP_EMAILJS_TEMPLATE_ID
-    var public_key = process.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    var service_id = process.env.VITE_VERCEL_ENV_EMAILJS_SERVICE_ID
+    var templete_id = process.env.VITE_VERCEL_ENV_EMAILJS_TEMPLATE_ID
+    var public_key = process.env.VITE_VERCEL_ENV_EMAILJS_PUBLIC_KEY
 
     emailjs
       .send(
