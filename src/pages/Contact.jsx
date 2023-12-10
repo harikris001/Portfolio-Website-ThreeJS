@@ -26,10 +26,14 @@ const Contact = () => {
     setLoading(true);
     setCurrAnimation("hit");
 
+    var service_id = process.env.VITE_APP_EMAILJS_SERVICE_ID
+    var templete_id = process.env.VITE_APP_EMAILJS_TEMPLATE_ID
+    var public_key = process.env.VITE_APP_EMAILJS_PUBLIC_KEY
+
     emailjs
       .send(
-        process.env.VITE_APP_EMAILJS_SERVICE_ID,
-        process.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        service_id,
+        templete_id,
         {
           from_name: form.name,
           to_name: "Harikrishna R Nair",
@@ -37,7 +41,7 @@ const Contact = () => {
           to_email: "harikrishnar.official@gmail.com",
           message: form.message,
         },
-        'SX8ahD6el7e2Qmf8d'
+        public_key
       )
       .then(() => {
         setLoading(false);
