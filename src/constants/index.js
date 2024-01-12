@@ -32,7 +32,8 @@ import {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    evently
 } from "../assets/icons";
 export const skills = [
     {
@@ -257,5 +258,12 @@ export const projects = [
         name: 'Weather App',
         description: 'A simple flutter based app with an amazing UI. uses OpenWeather API for fetching realtime weather and temprature data.',
         link: 'https://weather-app-harikris001.vercel.app/',
+    },
+    {
+        iconUrl: evently,
+        theme: 'btn-back-green',
+        name: 'Evently',
+        description: 'An Event Managment platform created using Next.js for creating events, Posting them online and selling tickets using stripe.',
+        link: 'https://evently-manage.vercel.app/',   
     }
 ];

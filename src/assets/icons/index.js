@@ -30,6 +30,7 @@ import flutter from './flutter.svg'
 import firebase from './firebase.svg'
 import bootstrap from './bootstrap.svg'
 import opencv from './opencv.svg'
+import evently from './evently.svg'
 
 
 
@@ -65,5 +66,6 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    evently
 }
