@@ -141,6 +141,19 @@ export const skills = [
 
 export const experiences = [
     {
+        title: "Work Experience",
+        company_name: "GTech-Mulearn JECC, FOSS@JECC",
+        icon: experience,
+        iconBg: "#fbc3bc",
+        skills: "Skills: Group Managment, Communication",
+        points: [
+            "AI/ML Intrest Group lead",
+            "FOSS Campus Chief Student Ambassador",
+            "Organizing Events and activities in club.",
+            "Research of new technologies"
+        ],
+    },
+    {
         title: "Certifications",
         company_name: "Udemy, FreeCodeCamp",
         icon: certificate,
@@ -154,16 +167,16 @@ export const experiences = [
         ],
     },
     {
-        title: "Experiences",
-        company_name: "Volunteership, TeamLead",
+        title: "Volunteership",
+        company_name: "Hackathons, Projects",
         icon: experience,
         iconBg: "#fbc3bc",
         skills: "Skills: Leadership, Team Player, Collaboration",
         points: [
+            "Hackathena CESA Hackathon Student Mentor",
             "NASA Space Apps Hackathon Volunteer",
             "S7-Main Project Team Lead",
             "S5-Mini Project team Lead",
-            "Gtech MuLearn AI/ML Intrest Group Coordinator",
         ],
     },
     {
